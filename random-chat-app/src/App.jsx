@@ -16,7 +16,7 @@ function App() {
   async function onSend(innerHtml, textContent, innerText, nodes) {
     const messagesWithUserMessage = messages.concat([{message: textContent, direction: "outgoing"}])
     setMessages(messagesWithUserMessage)
-    const aiResponse = await getAIResponse()
+    const aiResponse = await getAIResponse(textContent)
     setMessages(messagesWithUserMessage.concat([{message: aiResponse, direction: "incoming"}]))
   }
 
